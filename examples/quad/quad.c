@@ -8,10 +8,11 @@ int main(void)
 
     float quadPoints[] = 
     {
-        -0.8f,  0.8f, // left top - 0
-         0.8f,  0.8f, // right top - 1
-        -0.8f, -0.8f, // left bottom - 2
-         0.8f, -0.8f, // right bottom - 3
+        // coordinates        // colors
+        -0.8f,  0.8f, 1.0f, 0.0f, 0.0f, // left top - 0
+        0.8f,  0.8f,  0.0f, 1.0f, 0.0f, // right top - 1
+        -0.8f, -0.8f,0.0f, 0.0f, 1.0f, // left bottom - 2
+        0.8f, -0.8f, 1.0f, 234.0f/255, 0.0f // right bottom - 3
     };
 
     unsigned quadParts[] =
@@ -34,15 +35,12 @@ int main(void)
             );
 
     unsigned VAO = createVAO();
-    
-    createBuffer(GL_ARRAY_BUFFER);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(quadPoints), quadPoints, GL_DYNAMIC_DRAW);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnableVertexAttribArray(0);
 
     createBuffer(GL_ARRAY_BUFFER);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_DYNAMIC_DRAW);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(quadPoints), quadPoints, GL_DYNAMIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(2 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
     createBuffer(GL_ELEMENT_ARRAY_BUFFER);
