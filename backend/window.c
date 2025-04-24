@@ -37,6 +37,11 @@ bool window_isOpen(void)
     return !glfwWindowShouldClose(window);
 }
 
+bool window_keyPressed(int key)
+{
+    return glfwGetKey(window, key) == GLFW_PRESS;
+}
+
 void window_close(void)
 {
     glfwSetWindowShouldClose(window, true);

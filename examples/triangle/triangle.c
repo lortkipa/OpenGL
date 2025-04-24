@@ -1,6 +1,4 @@
-#include "../../backend/window.h"
-#include "../../backend/shader.h"
-#include "../../backend/buffer.h"
+#include "../../backend/backend.h"
 #include <GL/glew.h>
 
 int main(void)
