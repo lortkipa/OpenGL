@@ -9,3 +9,6 @@ init:
 
 triangle:
 	$(compiler) $(sources) $(libraries) $(endPoints)/triangle/triangle.c -o $(bin)/triangle
+
+quad:
+	$(compiler) $(sources) $(libraries) $(endPoints)/quad/quad.c -o $(bin)/quad
