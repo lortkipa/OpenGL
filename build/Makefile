@@ -1,6 +1,6 @@
 compiler = clang 
 sources = $(shell find ../backend -name *.c)
-libraries = -lGL -lGLEW -lglfw
+libraries = -lm -lGL -lGLEW -lglfw
 bin = bin
 endPoints = ../examples
 
@@ -12,3 +12,6 @@ triangle:
 
 quad:
 	$(compiler) $(sources) $(libraries) $(endPoints)/quad/quad.c -o $(bin)/quad
+
+texture:
+	$(compiler) $(sources) $(libraries) $(endPoints)/texture/texture.c -o $(bin)/texture
